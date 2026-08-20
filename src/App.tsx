@@ -1,5 +1,8 @@
 import "./App.css";
 
+const assetUrl = (fileName: string) =>
+  `${import.meta.env.BASE_URL}${encodeURIComponent(fileName)}`;
+
 function App() {
   const links = [
     {
@@ -15,7 +18,7 @@ function App() {
     {
       label: "Qiita",
       href: "https://qiita.com/keikeigo",
-      icon: <img src="/qiita-icon.png" alt="" />,
+      icon: <img src={assetUrl("qiita-icon.png")} alt="" />,
     },
   ];
 
@@ -27,7 +30,7 @@ function App() {
         <div className="profile">
           <img
             className="avatar"
-            src="/アイコン.jpg"
+            src={assetUrl("アイコン.jpg")}
             alt="芹口京悟のアイコン"
           />
 
