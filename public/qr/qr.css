@@ -1,0 +1,59 @@
+:root {
+  font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Segoe UI", sans-serif;
+  color: #0f172a;
+  background: #f6f1e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100svh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(0, 0, 0, 0.06), transparent 32%),
+    linear-gradient(135deg, #f6f1e8 0%, #fffaf3 40%, #eef4ff 100%);
+}
+
+.qr-page {
+  min-height: 100svh;
+  padding: 28px;
+}
+
+.back-link {
+  color: #475569;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+  color: #2563eb;
+}
+
+.qr-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100svh - 56px);
+  justify-content: center;
+}
+
+.qr-code {
+  width: min(76vw, 320px);
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+}
+
+@media (max-width: 520px) {
+  .qr-page {
+    padding: 18px;
+  }
+
+}

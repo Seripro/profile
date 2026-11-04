@@ -3,6 +3,8 @@ import "./App.css";
 const assetUrl = (fileName: string) =>
   `${import.meta.env.BASE_URL}${encodeURIComponent(fileName)}`;
 
+const qrPageUrl = `${import.meta.env.BASE_URL}qr/`;
+
 function App() {
   const links = [
     {
@@ -32,6 +34,10 @@ function App() {
   return (
     <main className="business-card-shell">
       <section className="business-card" aria-label="デジタル名刺">
+        <a className="qr-button" href={qrPageUrl} aria-label="QRコードを表示">
+          <QrIcon />
+        </a>
+
         <div className="profile">
           <img
             className="avatar"
@@ -54,6 +60,15 @@ function App() {
             </span>
           ))}
         </div>
+
+        <a
+          className="portfolio-link"
+          href="https://portfolio-one-navy-86.vercel.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Portfolioを見る <span aria-hidden="true">↗</span>
+        </a>
 
         <div className="links" aria-label="リンク一覧">
           {links.map((link) => (
@@ -101,6 +116,14 @@ function LinkedInIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14Zm1.78 13.04H3.54V8.98H7.1v11.47Z" />
+    </svg>
+  );
+}
+
+function QrIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M3 3h7v7H3V3Zm2 2v3h3V5H5Zm9-2h7v7h-7V3Zm2 2v3h3V5h-3ZM3 14h7v7H3v-7Zm2 2v3h3v-3H5Zm9-2h2v2h-2v-2Zm3 0h4v4h-2v-2h-2v-2Zm-3 3h2v4h-2v-4Zm3 2h2v2h-2v-2Z" />
     </svg>
   );
 }
