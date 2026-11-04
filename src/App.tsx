@@ -55,6 +55,15 @@ function App() {
           ))}
         </div>
 
+        <a
+          className="portfolio-link"
+          href="https://portfolio-one-navy-86.vercel.app/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Portfolioを見る <span aria-hidden="true">↗</span>
+        </a>
+
         <div className="links" aria-label="リンク一覧">
           {links.map((link) => (
             <a

@@ -107,6 +107,33 @@
   margin-top: 28px;
 }
 
+.portfolio-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 6px;
+  margin: 28px auto 0;
+  padding: 0 0 3px;
+  color: var(--text-h);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  font-size: 15px;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    gap 0.2s ease;
+}
+
+.portfolio-link:hover {
+  gap: 10px;
+  color: var(--accent);
+}
+
+.portfolio-link:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.4);
+  outline-offset: 3px;
+}
+
 .skill-pill {
   display: inline-flex;
   align-items: center;
@@ -269,6 +296,10 @@
     gap: 8px;
     margin-top: 18px;
     justify-content: center;
+  }
+
+  .portfolio-link {
+    margin-top: 20px;
   }
 
   .skill-pill {
