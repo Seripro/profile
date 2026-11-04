@@ -60,6 +60,41 @@
   box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16);
 }
 
+.qr-button {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #475569;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.qr-button:hover {
+  color: var(--accent);
+  border-color: rgba(37, 99, 235, 0.4);
+  transform: translateY(-1px);
+}
+
+.qr-button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.3);
+  outline-offset: 3px;
+}
+
+.qr-button svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
 .skill-pill,
 .link-card {
   border-radius: 999px;
@@ -215,6 +250,11 @@
   .business-card {
     padding: 20px;
     border-radius: 24px;
+  }
+
+  .qr-button {
+    top: 16px;
+    right: 16px;
   }
 
   .profile {
