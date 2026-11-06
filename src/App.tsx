@@ -70,6 +70,12 @@ function App() {
           Portfolioを見る <span aria-hidden="true">↗</span>
         </a>
 
+        <div className="section-heading">Contact</div>
+        <p className="email-address">
+          <MailIcon />
+          <span>2147keigo@gmail.com</span>
+        </p>
+
         <div className="links" aria-label="リンク一覧">
           {links.map((link) => (
             <a
@@ -124,6 +130,14 @@ function QrIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M3 3h7v7H3V3Zm2 2v3h3V5H5Zm9-2h7v7h-7V3Zm2 2v3h3V5h-3ZM3 14h7v7H3v-7Zm2 2v3h3v-3H5Zm9-2h2v2h-2v-2Zm3 0h4v4h-2v-2h-2v-2Zm-3 3h2v4h-2v-4Zm3 2h2v2h-2v-2Z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M3.75 5.25h16.5A1.5 1.5 0 0 1 21.75 6.75v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V6.75a1.5 1.5 0 0 1 1.5-1.5Zm.24 1.5L12 12.18l8.01-5.43H3.99ZM20.25 8.18l-7.83 5.3a.75.75 0 0 1-.84 0l-7.83-5.3v9.07h16.5V8.18Z" />
     </svg>
   );
 }

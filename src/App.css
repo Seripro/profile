@@ -169,6 +169,24 @@
   outline-offset: 3px;
 }
 
+.email-address {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: 12px;
+  margin-bottom: 0;
+  color: var(--text-h);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.email-address svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
 .skill-pill {
   display: inline-flex;
   align-items: center;
@@ -305,6 +323,11 @@
   .section-heading {
     margin-top: 22px;
     text-align: center;
+  }
+
+  .email-address {
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
