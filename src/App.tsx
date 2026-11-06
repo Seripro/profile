@@ -53,36 +53,6 @@ function App() {
           </div>
         </div>
 
-        <div className="section-heading">興味ある技術</div>
-
-        <div className="skills" aria-label="興味がある技術">
-          {skills.map((skill) => (
-            <span key={skill} className="skill-pill">
-              {skill}
-            </span>
-          ))}
-        </div>
-
-        <div className="section-heading">趣味</div>
-
-        <div className="skills" aria-label="趣味">
-          {hobbies.map((hobby) => (
-            <span key={hobby} className="skill-pill">
-              {hobby}
-            </span>
-          ))}
-        </div>
-
-        <div className="section-heading">好きな食べ物</div>
-
-        <div className="skills" aria-label="好きな食べ物">
-          {favoriteFoods.map((food) => (
-            <span key={food} className="skill-pill">
-              {food}
-            </span>
-          ))}
-        </div>
-
         <a
           className="portfolio-link"
           href="https://portfolio-one-navy-86.vercel.app/"
@@ -92,27 +62,67 @@ function App() {
           Portfolioを見る <span aria-hidden="true">↗</span>
         </a>
 
-        <div className="section-heading">Contact</div>
-        <p className="email-address">
-          <MailIcon />
-          <span>2147keigo@gmail.com</span>
-        </p>
+        <div className="info-grid">
+          <section className="info-section">
+            <h2 className="section-heading">興味ある技術</h2>
+            <div className="skills" aria-label="興味がある技術">
+              {skills.map((skill) => (
+                <span key={skill} className="skill-pill">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </section>
 
-        <div className="links" aria-label="リンク一覧">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              className="link-card"
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={link.label}
-            >
-              <span className="link-icon" aria-hidden="true">
-                {link.icon}
-              </span>
-            </a>
-          ))}
+          <section className="info-section">
+            <h2 className="section-heading">趣味</h2>
+            <div className="skills" aria-label="趣味">
+              {hobbies.map((hobby) => (
+                <span key={hobby} className="skill-pill">
+                  {hobby}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="info-section">
+            <h2 className="section-heading">好きな食べ物</h2>
+            <div className="skills" aria-label="好きな食べ物">
+              {favoriteFoods.map((food) => (
+                <span key={food} className="skill-pill">
+                  {food}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="info-section">
+            <h2 className="section-heading">Contact</h2>
+            <p className="email-address">
+              <MailIcon />
+              <span>2147keigo@gmail.com</span>
+            </p>
+          </section>
+
+          <section className="info-section social-section">
+            <h2 className="section-heading">Links</h2>
+            <div className="links" aria-label="リンク一覧">
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  className="link-card"
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.label}
+                >
+                  <span className="link-icon" aria-hidden="true">
+                    {link.icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </main>

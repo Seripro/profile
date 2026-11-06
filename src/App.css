@@ -139,7 +139,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 10px;
 }
 
 .portfolio-link {
@@ -147,21 +147,24 @@
   width: fit-content;
   align-items: center;
   gap: 6px;
-  margin: 28px auto 0;
-  padding: 0 0 3px;
-  color: var(--text-h);
+  margin: 26px 0 0;
+  padding: 12px 16px;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  font-size: 15px;
+  border-radius: 12px;
+  background: var(--accent);
+  font-size: 16px;
   font-weight: 600;
   transition:
+    transform 0.2s ease,
     color 0.2s ease,
     gap 0.2s ease;
 }
 
 .portfolio-link:hover {
   gap: 10px;
-  color: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 .portfolio-link:focus-visible {
@@ -174,11 +177,26 @@
   align-items: center;
   gap: 10px;
   width: fit-content;
-  margin-top: 12px;
+  margin-top: 10px;
   margin-bottom: 0;
   color: var(--text-h);
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 44px;
+  margin-top: 36px;
+}
+
+.info-section {
+  min-width: 0;
+}
+
+.social-section {
+  grid-column: 1 / -1;
 }
 
 .email-address svg {
@@ -190,11 +208,11 @@
 .skill-pill {
   display: inline-flex;
   align-items: center;
-  padding: 10px 14px;
+  padding: 5px 9px;
   background: rgba(255, 255, 255, 0.86);
   color: var(--text-h);
   border: 1px solid rgba(15, 23, 42, 0.08);
-  font-size: 14px;
+  font-size: 13px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
 }
 
@@ -202,7 +220,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 28px;
+  margin-top: 10px;
 }
 
 .link-card {
@@ -252,12 +270,11 @@
 }
 
 .section-heading {
-  margin-top: 28px;
+  margin: 0;
   color: #334155;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 860px) {
@@ -320,14 +337,10 @@
     height: 24px;
   }
 
-  .section-heading {
-    margin-top: 22px;
-    text-align: center;
-  }
-
-  .email-address {
-    margin-right: auto;
-    margin-left: auto;
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 28px;
   }
 }
 
@@ -357,8 +370,7 @@
 
   .skills {
     gap: 8px;
-    margin-top: 18px;
-    justify-content: center;
+    margin-top: 10px;
   }
 
   .portfolio-link {
@@ -366,13 +378,13 @@
   }
 
   .skill-pill {
-    padding: 8px 12px;
-    font-size: 13px;
+    padding: 5px 8px;
+    font-size: 12px;
   }
 
   .links {
     gap: 8px;
-    margin-top: 18px;
+    margin-top: 10px;
   }
 
   .link-card {
