@@ -31,7 +31,7 @@ function App() {
 
   // const skills = ["Python", "TypeScript", "React", "Hono", "AWS"];
   const hobbies = ["サッカー", "サッカーゲーム", "Marvel", "YouTube"];
-  const favoriteFoods = ["ナン（特にチーズナン）", "うどん", "寿司"];
+  const favoriteFoods = ["ナン（特にチーズナン）", "うどん", "寿司", "タコス"];
 
   return (
     <main className="business-card-shell">
