@@ -30,6 +30,8 @@ function App() {
   ];
 
   const skills = ["Python", "TypeScript", "React", "Hono", "AWS"];
+  const hobbies = ["サッカー", "サッカーゲーム", "Marvel", "YouTube"];
+  const favoriteFoods = ["ナン（特にチーズナン）", "うどん", "寿司"];
 
   return (
     <main className="business-card-shell">
@@ -57,6 +59,26 @@ function App() {
           {skills.map((skill) => (
             <span key={skill} className="skill-pill">
               {skill}
+            </span>
+          ))}
+        </div>
+
+        <div className="section-heading">趣味</div>
+
+        <div className="skills" aria-label="趣味">
+          {hobbies.map((hobby) => (
+            <span key={hobby} className="skill-pill">
+              {hobby}
+            </span>
+          ))}
+        </div>
+
+        <div className="section-heading">好きな食べ物</div>
+
+        <div className="skills" aria-label="好きな食べ物">
+          {favoriteFoods.map((food) => (
+            <span key={food} className="skill-pill">
+              {food}
             </span>
           ))}
         </div>
