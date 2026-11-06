@@ -53,36 +53,6 @@ function App() {
           </div>
         </div>
 
-        <div className="section-heading">興味ある技術</div>
-
-        <div className="skills" aria-label="興味がある技術">
-          {skills.map((skill) => (
-            <span key={skill} className="skill-pill">
-              {skill}
-            </span>
-          ))}
-        </div>
-
-        <div className="section-heading">趣味</div>
-
-        <div className="skills" aria-label="趣味">
-          {hobbies.map((hobby) => (
-            <span key={hobby} className="skill-pill">
-              {hobby}
-            </span>
-          ))}
-        </div>
-
-        <div className="section-heading">好きな食べ物</div>
-
-        <div className="skills" aria-label="好きな食べ物">
-          {favoriteFoods.map((food) => (
-            <span key={food} className="skill-pill">
-              {food}
-            </span>
-          ))}
-        </div>
-
         <a
           className="portfolio-link"
           href="https://portfolio-one-navy-86.vercel.app/"
@@ -92,21 +62,67 @@ function App() {
           Portfolioを見る <span aria-hidden="true">↗</span>
         </a>
 
-        <div className="links" aria-label="リンク一覧">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              className="link-card"
-              href={link.href}
-              target="_blank"
-              rel="noreferrer"
-              aria-label={link.label}
-            >
-              <span className="link-icon" aria-hidden="true">
-                {link.icon}
-              </span>
-            </a>
-          ))}
+        <div className="info-grid">
+          <section className="info-section">
+            <h2 className="section-heading">興味ある技術</h2>
+            <div className="skills" aria-label="興味がある技術">
+              {skills.map((skill) => (
+                <span key={skill} className="skill-pill">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="info-section">
+            <h2 className="section-heading">趣味</h2>
+            <div className="skills" aria-label="趣味">
+              {hobbies.map((hobby) => (
+                <span key={hobby} className="skill-pill">
+                  {hobby}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="info-section">
+            <h2 className="section-heading">好きな食べ物</h2>
+            <div className="skills" aria-label="好きな食べ物">
+              {favoriteFoods.map((food) => (
+                <span key={food} className="skill-pill">
+                  {food}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          <section className="info-section">
+            <h2 className="section-heading">Contact</h2>
+            <p className="email-address">
+              <MailIcon />
+              <span>2147keigo@gmail.com</span>
+            </p>
+          </section>
+
+          <section className="info-section social-section">
+            <h2 className="section-heading">Links</h2>
+            <div className="links" aria-label="リンク一覧">
+              {links.map((link) => (
+                <a
+                  key={link.label}
+                  className="link-card"
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.label}
+                >
+                  <span className="link-icon" aria-hidden="true">
+                    {link.icon}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
         </div>
       </section>
     </main>
@@ -146,6 +162,14 @@ function QrIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M3 3h7v7H3V3Zm2 2v3h3V5H5Zm9-2h7v7h-7V3Zm2 2v3h3V5h-3ZM3 14h7v7H3v-7Zm2 2v3h3v-3H5Zm9-2h2v2h-2v-2Zm3 0h4v4h-2v-2h-2v-2Zm-3 3h2v4h-2v-4Zm3 2h2v2h-2v-2Z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M3.75 5.25h16.5A1.5 1.5 0 0 1 21.75 6.75v10.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5V6.75a1.5 1.5 0 0 1 1.5-1.5Zm.24 1.5L12 12.18l8.01-5.43H3.99ZM20.25 8.18l-7.83 5.3a.75.75 0 0 1-.84 0l-7.83-5.3v9.07h16.5V8.18Z" />
     </svg>
   );
 }
