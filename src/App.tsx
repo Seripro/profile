@@ -29,9 +29,9 @@ function App() {
     },
   ];
 
-  const skills = ["Python", "TypeScript", "React", "Hono", "AWS"];
+  // const skills = ["Python", "TypeScript", "React", "Hono", "AWS"];
   const hobbies = ["サッカー", "サッカーゲーム", "Marvel", "YouTube"];
-  const favoriteFoods = ["ナン（特にチーズナン）", "うどん", "寿司"];
+  const favoriteFoods = ["ナン（特にチーズナン）", "うどん", "寿司", "タコス"];
 
   return (
     <main className="business-card-shell">
@@ -63,7 +63,7 @@ function App() {
         </a>
 
         <div className="info-grid">
-          <section className="info-section">
+          {/* <section className="info-section">
             <h2 className="section-heading">興味ある技術</h2>
             <div className="skills" aria-label="興味がある技術">
               {skills.map((skill) => (
@@ -72,7 +72,7 @@ function App() {
                 </span>
               ))}
             </div>
-          </section>
+          </section> */}
 
           <section className="info-section">
             <h2 className="section-heading">趣味</h2>
