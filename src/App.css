@@ -147,24 +147,21 @@
   width: fit-content;
   align-items: center;
   gap: 6px;
-  margin: 26px 0 0;
-  padding: 12px 16px;
-  color: #fff;
+  margin: 26px auto 0;
+  padding: 0 0 3px;
+  color: #334155;
   text-decoration: none;
-  border-radius: 12px;
-  background: var(--accent);
-  font-size: 16px;
+  border-bottom: 1px solid currentColor;
+  font-size: 20px;
   font-weight: 600;
   transition:
-    transform 0.2s ease,
     color 0.2s ease,
     gap 0.2s ease;
 }
 
 .portfolio-link:hover {
   gap: 10px;
-  color: #fff;
-  transform: translateY(-2px);
+  color: var(--text-h);
 }
 
 .portfolio-link:focus-visible {
