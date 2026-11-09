@@ -110,8 +110,10 @@ function App() {
             alt={copy.avatarAlt}
           />
           <div className="identity">
-            <h1>芹口 京悟</h1>
-            <p className="roman-name">Seriguchi Keigo</p>
+            <h1>{locale === "en" ? "Seriguchi Keigo" : "芹口 京悟"}</h1>
+            {locale === "ja" && (
+              <p className="roman-name">Seriguchi Keigo</p>
+            )}
           </div>
         </div>
         <a
