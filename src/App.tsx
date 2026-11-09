@@ -1,17 +1,61 @@
+import { useEffect } from "react";
 import "./App.css";
+
+type Locale = "ja" | "en";
 
 const assetUrl = (fileName: string) =>
   `${import.meta.env.BASE_URL}${encodeURIComponent(fileName)}`;
 
-const qrPageUrl = `${import.meta.env.BASE_URL}qr/`;
+const content = {
+  ja: {
+    pageTitle: "芹口京悟 | デジタル名刺",
+    cardLabel: "デジタル名刺",
+    qrLabel: "QRコードを表示",
+    avatarAlt: "芹口京悟のアイコン",
+    portfolio: "Portfolioを見る",
+    hobbiesHeading: "趣味",
+    hobbiesLabel: "趣味",
+    hobbies: ["サッカー", "サッカーゲーム", "Marvel", "YouTube"],
+    foodsHeading: "好きな食べ物",
+    foodsLabel: "好きな食べ物",
+    foods: ["ナン（特にチーズナン）", "うどん", "寿司", "タコス"],
+    linksLabel: "リンク一覧",
+    languageLabel: "表示言語",
+  },
+  en: {
+    pageTitle: "Keigo Seriguchi | Digital Business Card",
+    cardLabel: "Digital business card",
+    qrLabel: "Show QR code",
+    avatarAlt: "Keigo Seriguchi's profile photo",
+    portfolio: "View portfolio",
+    hobbiesHeading: "Hobbies",
+    hobbiesLabel: "Hobbies",
+    hobbies: ["Soccer", "Soccer video games", "Marvel", "YouTube"],
+    foodsHeading: "Favorite foods",
+    foodsLabel: "Favorite foods",
+    foods: ["Naan (especially cheese naan)", "Udon", "Sushi", "Tacos"],
+    linksLabel: "Links",
+    languageLabel: "Language",
+  },
+} as const;
+
+const localeFromPath = (): Locale =>
+  window.location.pathname.split("/").filter(Boolean).at(-1) === "en"
+    ? "en"
+    : "ja";
 
 function App() {
+  const isQrPage =
+    window.location.pathname.split("/").filter(Boolean).at(-1) === "qr";
+  const locale = localeFromPath();
+  const copy = content[locale];
+  const baseUrl = import.meta.env.BASE_URL;
+  const languagePaths: Record<Locale, string> = {
+    ja: `${baseUrl}ja/`,
+    en: `${baseUrl}en/`,
+  };
   const links = [
-    {
-      label: "X",
-      href: "https://x.com/keikeigokeigo",
-      icon: <XIcon />,
-    },
+    { label: "X", href: "https://x.com/keikeigokeigo", icon: <XIcon /> },
     {
       label: "GitHub",
       href: "https://github.com/Seripro/",
@@ -29,73 +73,66 @@ function App() {
     },
   ];
 
-  // const skills = ["Python", "TypeScript", "React", "Hono", "AWS"];
-  const hobbies = ["サッカー", "サッカーゲーム", "Marvel", "YouTube"];
-  const favoriteFoods = ["ナン（特にチーズナン）", "うどん", "寿司", "タコス"];
+  useEffect(() => {
+    document.documentElement.lang = locale;
+    document.title = copy.pageTitle;
+  }, [copy.pageTitle, locale]);
+
+  if (isQrPage) return <QrPage baseUrl={baseUrl} />;
 
   return (
     <main className="business-card-shell">
-      <section className="business-card" aria-label="デジタル名刺">
-        <a className="qr-button" href={qrPageUrl} aria-label="QRコードを表示">
-          <QrIcon />
-        </a>
-
+      <section className="business-card" aria-label={copy.cardLabel}>
+        <div className="card-actions">
+          <nav className="language-switcher" aria-label={copy.languageLabel}>
+            {(["ja", "en"] as const).map((language) => (
+              <a
+                key={language}
+                href={languagePaths[language]}
+                aria-current={language === locale ? "page" : undefined}
+              >
+                {language.toUpperCase()}
+              </a>
+            ))}
+          </nav>
+          <a
+            className="qr-button"
+            href={`${baseUrl}qr/`}
+            aria-label={copy.qrLabel}
+          >
+            <QrIcon />
+          </a>
+        </div>
         <div className="profile">
           <img
             className="avatar"
             src={assetUrl("アイコン.jpg")}
-            alt="芹口京悟のアイコン"
+            alt={copy.avatarAlt}
           />
-
           <div className="identity">
             <h1>芹口 京悟</h1>
             <p className="roman-name">Seriguchi Keigo</p>
           </div>
         </div>
-
         <a
           className="portfolio-link"
           href="https://portfolio-one-navy-86.vercel.app/"
           target="_blank"
           rel="noreferrer"
         >
-          Portfolioを見る <span aria-hidden="true">↗</span>
+          {copy.portfolio} <span aria-hidden="true">↗</span>
         </a>
-
         <div className="info-grid">
-          {/* <section className="info-section">
-            <h2 className="section-heading">興味ある技術</h2>
-            <div className="skills" aria-label="興味がある技術">
-              {skills.map((skill) => (
-                <span key={skill} className="skill-pill">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </section> */}
-
-          <section className="info-section">
-            <h2 className="section-heading">趣味</h2>
-            <div className="skills" aria-label="趣味">
-              {hobbies.map((hobby) => (
-                <span key={hobby} className="skill-pill">
-                  {hobby}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          <section className="info-section">
-            <h2 className="section-heading">好きな食べ物</h2>
-            <div className="skills" aria-label="好きな食べ物">
-              {favoriteFoods.map((food) => (
-                <span key={food} className="skill-pill">
-                  {food}
-                </span>
-              ))}
-            </div>
-          </section>
-
+          <InfoSection
+            heading={copy.hobbiesHeading}
+            label={copy.hobbiesLabel}
+            items={copy.hobbies}
+          />
+          <InfoSection
+            heading={copy.foodsHeading}
+            label={copy.foodsLabel}
+            items={copy.foods}
+          />
           <section className="info-section">
             <h2 className="section-heading">Contact</h2>
             <p className="email-address">
@@ -103,10 +140,9 @@ function App() {
               <span>2147keigo@gmail.com</span>
             </p>
           </section>
-
           <section className="info-section social-section">
             <h2 className="section-heading">Links</h2>
-            <div className="links" aria-label="リンク一覧">
+            <div className="links" aria-label={copy.linksLabel}>
               {links.map((link) => (
                 <a
                   key={link.label}
@@ -129,6 +165,51 @@ function App() {
   );
 }
 
+function QrPage({ baseUrl }: { baseUrl: string }) {
+  useEffect(() => {
+    document.documentElement.lang = "ja";
+    document.title = "芹口 京悟 | QRコード";
+  }, []);
+
+  return (
+    <main className="qr-page">
+      <a className="back-link" href={`${baseUrl}ja/`}>
+        ← 戻る
+      </a>
+      <section className="qr-content" aria-label="プロフィールのQRコード">
+        <img
+          className="qr-code"
+          src={`${baseUrl}profile-qr.svg`}
+          alt="https://seripro.github.io/profile/ のQRコード"
+        />
+      </section>
+    </main>
+  );
+}
+
+function InfoSection({
+  heading,
+  label,
+  items,
+}: {
+  heading: string;
+  label: string;
+  items: readonly string[];
+}) {
+  return (
+    <section className="info-section">
+      <h2 className="section-heading">{heading}</h2>
+      <div className="skills" aria-label={label}>
+        {items.map((item) => (
+          <span key={item} className="skill-pill">
+            {item}
+          </span>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default App;
 
 function XIcon() {
@@ -141,7 +222,6 @@ function XIcon() {
     </svg>
   );
 }
-
 function GitHubIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -149,7 +229,6 @@ function GitHubIcon() {
     </svg>
   );
 }
-
 function LinkedInIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -157,7 +236,6 @@ function LinkedInIcon() {
     </svg>
   );
 }
-
 function QrIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -165,7 +243,6 @@ function QrIcon() {
     </svg>
   );
 }
-
 function MailIcon() {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
