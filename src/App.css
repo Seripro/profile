@@ -63,10 +63,11 @@
 .card-actions {
   position: absolute;
   top: 22px;
+  left: 22px;
   right: 22px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
 }
 
 .qr-button {
@@ -315,6 +316,7 @@
 
   .card-actions {
     top: 16px;
+    left: 16px;
     right: 16px;
   }
 
